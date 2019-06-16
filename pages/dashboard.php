@@ -1,114 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BakeryPay </title>
 
-    <!-- ========== COMMON STYLES ========== -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="../css/font-awesome.min.css" media="screen">
-    <link rel="stylesheet" href="../css/animate-css/animate.min.css" media="screen">
-    <link rel="stylesheet" href="../css/lobipanel/lobipanel.min.css" media="screen">
+<?php
+include_once "../includes/header.php"
+?>
 
-    <!-- ========== PAGE STYLES ========== -->
-    <link rel="stylesheet" href="../css/prism/prism.css" media="screen"> <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
-    <link rel="stylesheet" href="../css/toastr/toastr.min.css" media="screen">
-    <link rel="stylesheet" href="../css/icheck/skins/line/blue.css">
-    <link rel="stylesheet" href="../css/icheck/skins/line/red.css">
-    <link rel="stylesheet" href="../css/icheck/skins/line/green.css">
-
-    <!-- ========== THEME CSS ========== -->
-    <link rel="stylesheet" href="../css/main.css" media="screen">
-
-    <!-- ========== MODERNIZR ========== -->
-    <script src="../js/modernizr/modernizr.min.js"></script>
-</head>
 <body class="top-navbar-fixed">
 <div class="main-wrapper">
 
-    <!-- ========== TOP NAVBAR ========== -->
-    <nav class="navbar top-navbar bg-white box-shadow">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="navbar-header no-padding">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="../images/logo-dark.svg" alt="Bakery Pay" class="logo">
-                    </a>
-                </div>
-                <!-- /.navbar-header -->
+    <?php
 
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
-
-                    <ul class="nav navbar-nav navbar-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <!-- /.dropdown -->
-                       <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">John Doe <span class="caret"></span></a>
-                            <ul class="dropdown-menu profile-dropdown">
-                                <li class="profile-menu bg-gray">
-                                    <div class="">
-                                        <img src="http://placehold.it/60/c2c2c2?text=User" alt="John Doe" class="img-circle profile-img">
-                                        <div class="profile-name">
-                                            <h6>John Doe</h6>
-                                            <a href="pages-profile.html">View Profile</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </li>
-                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                                <li><a href="#"><i class="fa fa-sliders"></i> Account Details</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#" class="color-danger text-center"><i class="fa fa-sign-out"></i> Logout</a></li>
-                            </ul>
-                        </li>
-                   </ul>
-                    <!-- /.nav navbar-nav navbar-right -->
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
+    include_once '../includes/navbar.php';
+    ?>
     <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
     <div class="content-wrapper">
         <div class="content-container">
-
-            <!-- ========== LEFT SIDEBAR ========== -->
-            <div class="left-sidebar fixed-sidebar bg-black-300 box-shadow">
-                <div class="sidebar-content">
-
-                    <div class="sidebar-nav">
-                        <ul class="side-nav color-gray">
-                            <li>
-                                <a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-right arrow"></i></a>
-                            </li>
-
-                            <li class="nav-header">
-                                <span class="">Settings</span>
-                            </li>
-                            <li class="has-children">
-                                <a href="#"><i class="fa fa-file-text"></i> <span>Suppliers</span> <i class="fa fa-angle-right arrow"></i></a>
-                                <ul class="child-nav">
-                                    <li><a href="layout-fixed-top.html"><i class="fa fa-lock"></i> <span>Create Supplier Navbar</span></a></li>
-                                    <li><a href="layout-fixed-top-side.html"><i class="fa fa-thumb-tack"></i>
-                                            <span>Fixed Navbar & Sidebar</span></a></li>
-                                    <li><a href="layout-static-top-side.html"><i class="fa fa-unlock"></i> <span>Static Navbar & Sidebar</span></a>
-                                    </li>
-                                    <li><a href="layout-small-sidebar.html"><i class="fa fa-sign-in"></i> <span>Small Sidebar</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.sidebar-nav -->
-                </div>
-                <!-- /.sidebar-content -->
-            </div>
-            <!-- /.left-sidebar -->
-
+            <?php
+            include_once "../includes/sidebar.php";
+            ?>
             <div class="main-page">
                 <!-- /.container-fluid -->
 
@@ -334,25 +242,9 @@
 <!-- /.main-wrapper -->
 
 <!-- ========== COMMON JS FILES ========== -->
-<script src="../js/jquery/jquery-2.2.4.min.js"></script>
-<script src="../js/jquery-ui/jquery-ui.min.js"></script>
-<script src="../js/bootstrap/bootstrap.min.js"></script>
-<script src="../js/pace/pace.min.js"></script>
-<script src="../js/lobipanel/lobipanel.min.js"></script>
-<script src="../js/iscroll/iscroll.js"></script>
-
-<!-- ========== PAGE JS FILES ========== -->
-<script src="../js/prism/prism.js"></script>
-<script src="../js/icheck/icheck.min.js"></script>
-
-<!-- ========== THEME JS ========== -->
-<script src="../js/main.js"></script>
-<script src="../js/production-chart.js"></script>
-<script src="../js/traffic-chart.js"></script>
-<script src="../js/task-list.js"></script>
-<script>
-
-</script>
+<?php
+include_once "../includes/footer.php";
+?>
 
 <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
 </body>

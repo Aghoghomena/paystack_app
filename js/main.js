@@ -48,8 +48,8 @@ $(function($) {
 		$('.right-sidebar, .right-sidebar .sidebar-content').css('right','-400px');
 	});
 
-	// Initialize panel controls
-	$('[data-panel-control]').lobiPanel();
+	// // Initialize panel controls
+	// $('[data-panel-control]').lobiPanel();
 
 	// Visibility of source code button
 	$('.src-btn').hide();
