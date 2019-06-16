@@ -34,7 +34,7 @@
                             </div>
                             <div class="panel-body p-20">
 
-                                <form action="index.html">
+                                <form action="index.php">
                                 	<div class="form-group">
                                 		<label for="exampleInputEmail1">Email address</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email Id" autocomplete="off" >
