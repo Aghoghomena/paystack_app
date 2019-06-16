@@ -104,14 +104,14 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "scripts/loginscript",
+                        url: "scripts/loginscript.php",
                         data: {username: username, password: password, functionID: 1},
 
                         success: function (msg) {
                             console.log('this is it' + msg);
 
                             if (msg === "1001") {
-                                window.location.replace('pages/dashboard');
+                                window.location.replace('pages/dashboard.php');
                             } else {
                                 sweetAlert("Oops...", msg, "error");
                                 return false;
