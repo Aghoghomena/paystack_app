@@ -1,7 +1,7 @@
 <?php
 
-//require_once "../setup/connect_heroku.php";
-require_once "../setup/connect.php";
+require_once "../setup/connect_heroku.php";
+//require_once "../setup/connect.php";
 $functionID = $_POST['functionID'];
 //user login
 if ($functionID == 1) {
