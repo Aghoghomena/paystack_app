@@ -19,6 +19,7 @@
 
         <!-- ========== MODERNIZR ========== -->
         <script src="js/modernizr/modernizr.min.js"></script>
+        <link href="css/sweetalert.css" rel="stylesheet">
     </head>
     <body class="">
         <div class="main-wrapper">
@@ -34,19 +35,18 @@
                             </div>
                             <div class="panel-body p-20">
 
-                                <form action="index.php">
+                                <form>
                                 	<div class="form-group">
                                 		<label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email Id" autocomplete="off" >
+                                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email Id" autocomplete="off" >
                                 	</div>
                                 	<div class="form-group">
                                 		<label for="exampleInputPassword1">Password</label>
-                                		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                		<input type="password" class="form-control" id="password" placeholder="Password">
                                 	</div>
                                     <div class="form-group mt-20">
                                         <div class="">
-                                            <a href="#" class="form-link"><small class="muted-text">Forgot Password?</small></a>
-                                            <button type="submit" class="btn btn-success btn-labeled pull-right">Sign in<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+                                            <button type="submit" class="btn btn-success btn-labeled pull-right" id="btnsign">Sign in<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
@@ -81,11 +81,52 @@
 
         <!-- ========== THEME JS ========== -->
         <script src="js/main.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+        <script src="js/validate.js"></script>
         <script>
             $(function(){
                 $('input.flat-blue-style').iCheck({
                     checkboxClass: 'icheckbox_flat-blue'
                 });
+            });
+
+            $('#btnsign').click(function (e) {
+                e.preventDefault();
+                var username = $('#email').val();
+                var password = $('#password').val();
+                var validate_array = [{'value': username, 'type': 'string', 'name': "Username"}, {
+                    'value': password,
+                    'type': 'string',
+                    'name': "Password"
+                }];
+                validate_result = validateForm(validate_array);
+                if (validate_result['error'] === 0) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "scripts/loginscript",
+                        data: {username: username, password: password, functionID: 1},
+
+                        success: function (msg) {
+                            console.log('this is it' + msg);
+
+                            if (msg === "1001") {
+                                window.location.replace('pages/dashboard');
+                            } else {
+                                sweetAlert("Oops...", msg, "error");
+                                return false;
+                            }
+
+                        }
+                    });
+
+                    return false;
+                }
+                else {
+                    sweetAlert("Oops...", validate_result['message'], "error");
+                    return false;
+                }
+
             });
         </script>
 
