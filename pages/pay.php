@@ -1,5 +1,6 @@
 <?php
 
+
 function initiate($email, $sent_amount){
     $curl = curl_init();
 
@@ -36,8 +37,8 @@ function initiate($email, $sent_amount){
         //print_r('API returned error: ' . $tranx['message']);
     }
     else{
-        //header('Location: ' . $tranx['data']['authorization_url']);
-        return['status'=> 1, 'data'=>$tranx['data']];
+        header('Location: ' . $tranx['data']['authorization_url']);
+        //return['status'=> 1, 'data'=>$tranx['data']];
     }
 
 // comment out this line if you want to redirect the user to the payment page

@@ -18,7 +18,11 @@
                         <li><a href="create_supply.php"><i class="fa fa-thumb-tack"></i><span>Create Supply</span></a></li>
                         <li><a href="view_supplies.php"><i class="fa fa-unlock"></i> <span>View Supplies</span></a></li>
                         <li><a href="settle.php"><i class="fa fa-sign-in"></i> <span>Settle Supplies</span></a></li>
+                        <li><a href="view_payment.php"><i class="fa fa-sign-in"></i> <span>View Payments</span></a></li>
                     </ul>
+                </li>
+                <li class="">
+                    <a href="../logout.php"><i class="fa fa-file-text"></i> <span>Log out</span> <i class="fa fa-angle-right arrow"></i></a>
                 </li>
             </ul>
         </div>

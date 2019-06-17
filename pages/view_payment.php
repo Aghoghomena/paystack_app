@@ -26,7 +26,7 @@ include_once "../includes/header.php"
                     <div class="container-fluid">
                         <div class="row page-title-div">
                             <div class="col-sm-6">
-                                <h2 class="title">View Supplies</h2>
+                                <h2 class="title">View Payments</h2>
                             </div>
                             <!-- /.col-sm-6 -->
 
@@ -51,7 +51,9 @@ include_once "../includes/header.php"
                                             <th>Quantity</th>
                                             <th>Supplier</th>
                                             <th>Cost Price</th>
-                                            <th>Payment Status</th>
+                                            <th>Amount Paid</th>
+                                            <th>Paymnent Reference</th>
+                                            <th>Paid By</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -83,7 +85,7 @@ include_once "../includes/footer.php";
     $.ajax({
         type: "POST",
         url: "../scripts/supplyscript.php",
-        data: {functionID: 3},
+        data: {functionID: 4},
 
         success: function (msg) {
             var result = JSON.parse(msg);
@@ -92,22 +94,19 @@ include_once "../includes/footer.php";
             var table = $('#example').DataTable();
             $.each(result, function (index, value) {
                 count ++;
+                //var name = value.firstname +' '+ value.lastname;
                 var column1 ='<span>'+count+'</span>';
                 var column2 ='<span>'+value.description+'</span>';
                 var column3 ='<span>'+value.qty+'</span>';
                 var column4 ='<span>'+value.name+'</span>';
                 var column5 ='<span>'+value.cost+'</span>';
-                if(value.payment_status === "1"){
-                    var column6 ='<span>Payed</span>';
-                }
-                else{
-                    var column6 ='<span>Payment Pending</span>';
-                }
-
+                var column6 ='<span>'+value.amount_payed+'</span>';
+                var column7 ='<span>'+value.reference+'</span>';
+                var column8 ='<span>'+name+'</span>';
 
 
                 rowNode = table
-                    .row.add( [ column1, column2, column3, column4,column5, column6] )
+                    .row.add( [ column1, column2, column3, column4,column5, column6, column7, column8] )
                     .draw()
             })
         }

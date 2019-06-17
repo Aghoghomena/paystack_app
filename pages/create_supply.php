@@ -122,7 +122,15 @@ include_once "../includes/footer.php";
                                 location.reload();
                             }
                         );
-                    } else {
+                    }
+                    else if(status === "505"){
+                        swal({title: "Session Expired", type: "error"},
+                            function () {
+                                window.location = "../logout.php";
+                            }
+                        );
+                    }
+                    else {
                         sweetAlert("Oops...", msg, "error");
                         return false;
                     }

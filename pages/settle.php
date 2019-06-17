@@ -78,13 +78,14 @@ include_once "../includes/header.php"
 <!-- ========== COMMON JS FILES ========== -->
 <?php
 include_once "../includes/footer.php";
-?>
 
+?>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
     $.ajax({
         type: "POST",
-        url: "../scripts/supplyscript.php",
-        data: {functionID: 3},
+        url: "../scripts/settlescript.php",
+        data: {functionID: 2},
 
         success: function (msg) {
             var result = JSON.parse(msg);
@@ -119,36 +120,7 @@ include_once "../includes/footer.php";
         ];
         validate_result = validateForm(validate_array);
         if (validate_result['error'] === 0) {
-
-            $.ajax({
-                type: "POST",
-                url: "../scripts/settlescript.php",
-                data: {id: id, price: price, functionID: 1},
-
-                success: function (msg) {
-                    console.log(msg);
-                    if (msg === "1001") {
-                        swal({title: "Settled Successfully", type: "success"},
-                            function () {
-                                location.reload();
-                            }
-                        );
-                    }
-                    else if(msg === "505"){
-                        swal({title: "Session Expired", type: "error"},
-                            function () {
-                                window.location = "../logout.php";
-                            }
-                        );
-                    }
-                    else {
-                        sweetAlert("Oops...", msg, "error");
-                        return false;
-                    }
-
-                }
-            });
-
+            payWithPaystack(price * 100,'ovieoghenerume@gmail.com', id);
             return false;
         }
         else {
@@ -157,6 +129,71 @@ include_once "../includes/footer.php";
         }
 
     })
+
+    function payWithPaystack(amount, email, id){
+        var handler = PaystackPop.setup({
+            key: 'pk_test_dedd78a591c8383b2881cf3442bc426fcebd5815',
+            email: email,
+            amount: amount,
+            currency: "NGN",
+            ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            metadata: {
+                custom_fields: [
+                    {
+                        display_name: "Mobile Number",
+                        variable_name: "mobile_number",
+                        value: "+2348012345678"
+                    }
+                ]
+            },
+            callback: function(response){
+
+                 console.log(response);
+                if(response['status'] === "success"){
+                    update_db(amount,id,response['reference']);
+                }
+                else{
+                    alert(response['message']);
+                }
+            },
+            onClose: function(){
+                //return {"status": 0, 'message': "Process Ended"};
+                alert('window closed');
+            }
+        });
+        handler.openIframe();
+    }
+
+    function update_db(price, id, reference){
+        $.ajax({
+            type: "POST",
+            url: "../scripts/settlescript.php",
+            data: {id: id, price: price, reference: reference, functionID: 1},
+
+            success: function (msg) {
+                console.log(msg);
+                if (msg === "1001") {
+                    swal({title: "Settled Successfully", type: "success"},
+                        function () {
+                            location.reload();
+                        }
+                    );
+                }
+                else if(msg === "505"){
+                    swal({title: "Session Expired", type: "error"},
+                        function () {
+                            window.location = "../logout.php";
+                        }
+                    );
+                }
+                else {
+                    sweetAlert("Oops...", msg, "error");
+                    return false;
+                }
+
+            }
+        });
+    }
 </script>
 
 <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
