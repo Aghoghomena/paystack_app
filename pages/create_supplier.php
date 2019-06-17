@@ -1,5 +1,5 @@
-
 <?php
+include_once "../includes/checklogin.php";
 require_once "../setup/connect_heroku.php";
 $select = "select type_name, id from supplier_type order by type_name";
 $query = mysqli_query($connect, $select);

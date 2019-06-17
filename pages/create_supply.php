@@ -1,9 +1,9 @@
-
-<!DOCTYPE html>
 <?php
+include_once "../includes/checklogin.php";
 include_once "../includes/header.php"
 ?>
 
+<!DOCTYPE html>
 <body class="top-navbar-fixed">
 <div class="main-wrapper">
 

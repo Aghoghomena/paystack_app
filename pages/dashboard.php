@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-
 <?php
+include_once "../includes/checklogin.php";
 include_once "../includes/header.php"
 ?>
 
+<!DOCTYPE html>
 <body class="top-navbar-fixed">
 <div class="main-wrapper">
 
@@ -25,8 +25,8 @@ include_once "../includes/header.php"
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a class="dashboard-stat bg-primary" href="#">
-                                    <span class="number counter">1,411</span>
-                                    <span class="name">Comments</span>
+                                    <span class="number counter csuppliers"></span>
+                                    <span class="name">Suppliers</span>
                                     <span class="bg-icon"><i class="fa fa-comments"></i></span>
                                 </a>
                                 <!-- /.dashboard-stat -->
@@ -37,8 +37,8 @@ include_once "../includes/header.php"
 
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a class="dashboard-stat bg-danger" href="#">
-                                    <span class="number counter">322</span>
-                                    <span class="name">Total Tickets</span>
+                                    <span class="number counter csupply"></span>
+                                    <span class="name">Supplies</span>
                                     <span class="bg-icon"><i class="fa fa-ticket"></i></span>
                                 </a>
                                 <!-- /.dashboard-stat -->
@@ -49,8 +49,8 @@ include_once "../includes/header.php"
 
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a class="dashboard-stat bg-warning" href="#">
-                                    <span class="number counter">5,551</span>
-                                    <span class="name">Bank Credits</span>
+                                    <span class="number counter cpaid"></span>
+                                    <span class="name">Total Paid (&#8358)</span>
                                     <span class="bg-icon"><i class="fa fa-bank"></i></span>
                                 </a>
                                 <!-- /.dashboard-stat -->
@@ -60,8 +60,8 @@ include_once "../includes/header.php"
 
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a class="dashboard-stat bg-success" href="#">
-                                    <span class="number counter">16,710</span>
-                                    <span class="name">Thumbs Up</span>
+                                    <span class="number counter cpending"></span>
+                                    <span class="name">Total Pending (&#8358)</span>
                                     <span class="bg-icon"><i class="fa fa-thumbs-o-up"></i></span>
                                 </a>
                                 <!-- /.dashboard-stat -->
@@ -79,7 +79,7 @@ include_once "../includes/header.php"
                 <section class="section pt-n">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="panel border-primary no-border border-3-top" data-panel-control>
                                     <div class="panel-heading">
                                         <div class="panel-title">
@@ -90,135 +90,20 @@ include_once "../includes/header.php"
                                     </div>
                                     <div class="panel-body">
 
-                                        <table class="table table-striped table-bordered">
+                                        <table class="table table-striped table-bordered" id="example">
                                             <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Username</th>
-                                                <th>Action</th>
+                                                <th>S/No</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Address</th>
+                                                <th>Email</th>
+                                                <th>Mobile No</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>@mdo</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>@cool</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Sachin</td>
-                                                <td>@the.god</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>@twitter</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Salman</td>
-                                                <td>@bhai</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td>Mark</td>
-                                                <td>@faceb</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-xs btn-labeled">Approve<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    <button type="button" class="btn btn-danger btn-xs btn-labeled">Reject<span
-                                                            class="btn-label btn-label-right"><i class="fa fa-times"></i></span></button>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
-
-                                    </div>
-                                </div>
-                                <!-- /.panel -->
-                            </div>
-                            <!-- /.col-md-6 -->
-
-                            <div class="col-md-6">
-                                <div class="panel border-primary no-border border-3-top" data-panel-control>
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <h5>Tasks
-                                                <small>with priority indicator</small>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body p-20">
-
-                                        <p>Following is the list of all the pending tasks. Click on task to mark it done. You can toggle the status by
-                                            clicking on an item.</p>
-
-                                        <div class="row">
-                                            <div class="tasks-list col-md-8 col-md-offset-2">
-                                                <div class="task mb-10">
-                                                    <input type="checkbox" name="one" class="line-style-blue">
-                                                    <label>This is medium priority task. It is indicated in primary color.</label>
-                                                </div>
-                                                <!-- /.task -->
-
-                                                <div class="task mb-10">
-                                                    <input type="checkbox" name="one" class="line-style-red">
-                                                    <label>This is top priority task. It is indicated in danger color.</label>
-                                                </div>
-                                                <!-- /.task -->
-
-                                                <div class="task mb-10">
-                                                    <input type="checkbox" name="one" class="line-style-green">
-                                                    <label>This is low priority task. It is indicated in success color. </label>
-                                                </div>
-                                                <!-- /.task -->
-
-                                                <div class="task mb-10">
-                                                    <input type="checkbox" name="one" class="line-style-blue" checked="">
-                                                    <label>This is medium priority task. It is indicated in primary color.</label>
-                                                </div>
-                                                <!-- /.task -->
-
-                                            </div>
-                                            <!-- /.tasks-list -->
-                                        </div>
-
                                     </div>
                                 </div>
                                 <!-- /.panel -->
@@ -245,6 +130,65 @@ include_once "../includes/header.php"
 <?php
 include_once "../includes/footer.php";
 ?>
+
+<script>
+    $.ajax({
+        type: "POST",
+        url: "../scripts/../scripts/home_script.php",
+        data: {functionID: 1},
+
+        success: function (response) {
+            var result = JSON.parse(response);
+            if (result.status === true) {
+                $(".csuppliers").html(result.count.suppliers);
+                $(".csupply").html(result.count.supplies);
+
+
+                if(result.count.payed === 'null' || result.count.payed === null){
+                    $(".cpaid").html(0);
+                }
+                else{
+                    $(".cpaid").html(result.count.payed);
+                }
+                if(result.count.pending === 'null' || result.count.pending === null){
+                    $(".cpending").html(0);
+                }
+                else{
+                    $(".cpending").html(result.count.pending);
+                }
+
+
+            }
+        }
+    })
+
+    $.ajax({
+        type: "POST",
+        url: "../scripts/home_script.php",
+        data: {functionID: 2},
+
+        success: function (msg) {
+            var result = JSON.parse(msg);
+            console.log(result);
+            var count = 0;
+            var table = $('#example').DataTable();
+            $.each(result, function (index, value) {
+                count ++;
+                var column1 ='<span>'+count+'</span>';
+                var column2 ='<span>'+value.name+'</span>';
+                var column3 ='<span>'+value.type_name+'</span>';
+                var column4 ='<span>'+value.address+'</span>';
+                var column5 ='<span>'+value.email+'</span>';
+                var column6 ='<span>'+value.phone_no+'</span>';
+
+                rowNode = table
+                    .row.add( [ column1, column2, column3, column4,column5, column6] )
+                    .draw()
+            })
+        }
+    });
+
+</script>
 
 <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
 </body>

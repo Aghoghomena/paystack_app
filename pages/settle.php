@@ -1,9 +1,9 @@
-
-<!DOCTYPE html>
 <?php
-include_once "../includes/header.php"
+include_once "../includes/checklogin.php";
+include_once "../includes/header.php";
+$email = $_SESSION['email'];
 ?>
-
+<!DOCTYPE html>
 <body class="top-navbar-fixed">
 <div class="main-wrapper">
 
@@ -37,6 +37,7 @@ include_once "../includes/header.php"
 
                 <section class="section">
                     <div class="container-fluid">
+                        <div id="div_email" style="display:none;"><?php echo $email; ?></div>
                         <div class="card alert">
                             <div class="card-header">
                                 <h4>Settle Supplies</h4>
@@ -114,13 +115,14 @@ include_once "../includes/footer.php";
         e.preventDefault();
         var id = $(this).attr("data-id");;
         var price =  $(this).closest('tr').find('.price').val();
+        var email = $('#div_email').text();
 
         var validate_array = [{'value': id, 'type': 'number', 'name': "Select an item"},
             {'value': price, 'type': 'number', 'name': "Amount Paid"},
         ];
         validate_result = validateForm(validate_array);
         if (validate_result['error'] === 0) {
-            payWithPaystack(price * 100,'ovieoghenerume@gmail.com', id);
+            payWithPaystack(price * 100, email, id);
             return false;
         }
         else {

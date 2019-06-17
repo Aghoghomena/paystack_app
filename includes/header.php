@@ -1,7 +1,4 @@
-<?php
-session_name("bakerypay");
-session_start();
-?>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">

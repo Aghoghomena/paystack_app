@@ -1,9 +1,8 @@
-
-<!DOCTYPE html>
 <?php
+include_once "../includes/checklogin.php";
 include_once "../includes/header.php"
 ?>
-
+<!DOCTYPE html>
 <body class="top-navbar-fixed">
 <div class="main-wrapper">
 
@@ -94,7 +93,7 @@ include_once "../includes/footer.php";
             var table = $('#example').DataTable();
             $.each(result, function (index, value) {
                 count ++;
-                //var name = value.firstname +' '+ value.lastname;
+                var name = value.firstname +' '+ value.lastname;
                 var column1 ='<span>'+count+'</span>';
                 var column2 ='<span>'+value.description+'</span>';
                 var column3 ='<span>'+value.qty+'</span>';

@@ -5,7 +5,7 @@
         <div class="sidebar-nav">
             <ul class="side-nav color-gray">
                 <li>
-                    <a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-right arrow"></i></a>
+                    <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-right arrow"></i></a>
                 </li>
 
                 <li class="nav-header">

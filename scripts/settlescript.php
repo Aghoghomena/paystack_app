@@ -1,5 +1,4 @@
 <?php
-
 session_name("bakerypay");
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['id'] == '' || $_SESSION['id'] == 0 || $_SESSION['id'] == null) {
@@ -16,7 +15,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] == '' || $_SESSION['id'] == 0 || 
         $ddate= date("d-m-Y H:i:s");
         //Connect to the database
 
-        $update = "update supplies set payment_status =1, amount_payed= '$cost', payed_by = '$id', reference = '$reference', date_paid = '$ddate' where id='$id'";
+        $update = "update supplies set payment_status =1, amount_payed= '$cost', payed_by = '$user_id', reference = '$reference', date_paid = '$ddate' where id='$id'";
         //echo $update;
         if(mysqli_query($connect,$update)){
             echo "1001";
