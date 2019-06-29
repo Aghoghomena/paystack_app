@@ -97,7 +97,7 @@ include_once "../includes/footer.php";
                 var column4 ='<span>'+value.name+'</span>';
                 var column5 ='<span>'+value.cost+'</span>';
                 if(value.payment_status === "1"){
-                    var column6 ='<span>Payed</span>';
+                    var column6 ='<span>Paid</span>';
                 }
                 else{
                     var column6 ='<span>Payment Pending</span>';
