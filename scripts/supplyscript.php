@@ -14,7 +14,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] == '' || $_SESSION['id'] == 0 || 
         $qty = $_POST['qty'];
         $cost = $_POST['price'];
         //Connect to the database
-        $sql = "insert into supplies (supplied_by, description, cost, qty)
+        $sql = "insert into supplies (supplied_by, description, cost, qtygg)
             VALUES ('$supplier','$desc', '$cost', '$qty')";
         if (mysqli_query($connect, $sql)) {
             echo "1001";
